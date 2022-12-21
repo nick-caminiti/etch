@@ -1,0 +1,13 @@
+.gridSquare {
+    /* width: 16.75px;
+    height: 16.75px; */
+    border: 1px solid black;
+}
+
+#gridContainer {
+    width: 400px;
+    height: 400px;
+    border: 1px solid green;
+    display: flex;
+    flex-wrap: wrap;
+}
