@@ -4,6 +4,7 @@ const gridSizeButton = document.getElementById('gridSizeButton')
 const originalButton = document.getElementById('original')
 const rainbowButton = document.getElementById('rainbow')
 const fadeButton = document.getElementById('fade')
+const eraserButton = document.getElementById('eraser')
 const resetButton = document.getElementById('reset')
 
 let gridStyleSelector = "original"
@@ -20,6 +21,10 @@ rainbowButton.addEventListener('click', () => {
 
 fadeButton.addEventListener('click', () => {
     gridStyleSelector = "fade"
+})
+
+eraserButton.addEventListener('click', () => {
+    gridStyleSelector = "eraser"
 })
 
 const gridSquares = document.getElementsByClassName('gridSquare');
@@ -69,18 +74,23 @@ function hover (e) {
             let blue =rgbArr[1]
             let green=rgbArr[2]
             e.target.style.backgroundColor = `rgb(${red - (255/10)}, ${blue - (255/10)}, ${green - (255/10)})`;
+        } else if (gridStyleSelector == "eraser") {
+            e.target.style.backgroundColor = `rgb(255,255,255)`;
         } else {
             e.target.classList.add('hovered')
         }        
     }
 }
+
+gridContainer.addEventListener('mousedown', hover)
+
 gridContainer.addEventListener('mousedown', () => {
     event.preventDefault()
-    gridContainer.addEventListener('mousemove', hover)
+    gridContainer.addEventListener('mouseover', hover)
 })
 
 gridContainer.addEventListener('mouseup', () => {
-    gridContainer.removeEventListener('mousemove', hover)
+    gridContainer.removeEventListener('mouseover', hover)
 })
 
 gridSizeButton.addEventListener('click', () => {
