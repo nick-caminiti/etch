@@ -76,11 +76,11 @@ function hover (e) {
 }
 gridContainer.addEventListener('mousedown', () => {
     event.preventDefault()
-    gridContainer.addEventListener('mouseover', hover)
+    gridContainer.addEventListener('mousemove', hover)
 })
 
 gridContainer.addEventListener('mouseup', () => {
-    gridContainer.removeEventListener('mouseover', hover)
+    gridContainer.removeEventListener('mousemove', hover)
 })
 
 gridSizeButton.addEventListener('click', () => {
